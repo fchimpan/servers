@@ -1,0 +1,40 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    paths:
+      - ".github/workflows/ci.yaml"
+      - "golang/app/**/.go"
+      - "golang/app/*.go"
+
+jobs:
+  unit-test:
+    name: test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go: [1.21]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set Up golang
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ matrix.go }}
+      - name: go test
+        run: go version # todo: add test command
+
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v2
+        with:
+          version: latest
+          args: --timeout=10m
+          working-directory: ./golang/app
