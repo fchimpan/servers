@@ -3,7 +3,6 @@ module server
 go 1.21.2
 
 require (
-	ariga.io/sqlcomment v0.1.0
 	entgo.io/ent v0.12.4
 	github.com/go-sql-driver/mysql v1.7.1
 )
