@@ -1,6 +1,6 @@
 module server
 
-go 1.21.2
+go 1.21
 
 require (
 	entgo.io/ent v0.12.4
