@@ -24,7 +24,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./golang/app
-          push: true
+          push: false
           tags: r4mimu/build-push-action-dev:${{ env.TAG }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -41,5 +41,5 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
       - name: docker build
         run: docker build -t r4mimu/build-push-command-dev:${{ env.TAG }} ./golang/app
-      - name: docker push
-        run: docker push r4mimu/build-push-command-dev:${{ env.TAG }}
+    #   - name: docker push
+    #     run: docker push r4mimu/build-push-command-dev:${{ env.TAG }}
