@@ -18,7 +18,7 @@ jobs:
     #     go: [1.21]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Set Up golang
         uses: actions/setup-go@v4
         with:
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3
         with:
